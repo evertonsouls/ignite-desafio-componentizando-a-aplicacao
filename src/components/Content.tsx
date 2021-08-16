@@ -1,7 +1,9 @@
+import { memo, useCallback } from 'react';
 import { MovieCard } from './MovieCard';
 import '../styles/content.scss';
 
 export interface MovieProps {
+  imdbID: string;
   Title: string;
   Poster: string;
   Ratings: Array<{
@@ -15,12 +17,12 @@ export interface ContentProps {
   movies: MovieProps[]
 }
 
-export function Content(props: ContentProps) {
+const ContentComponent = ({ movies }: ContentProps) => {   
   return (
     <div className="movies-list">
-      {props.movies.map(movie => (
+      {movies.map(movie => (
         <MovieCard 
-          key={movie.Title}
+          key={movie.imdbID}
           title={movie.Title} 
           poster={movie.Poster} 
           runtime={movie.Runtime} 
@@ -30,3 +32,5 @@ export function Content(props: ContentProps) {
     </div>
   )
 }
+
+export const Content = memo(ContentComponent);

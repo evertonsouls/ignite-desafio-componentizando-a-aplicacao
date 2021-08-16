@@ -1,5 +1,7 @@
 .movie-card {
   position: relative;
+  display: flex;
+  justify-content: center;
 
   img {
     width: 14.31rem;

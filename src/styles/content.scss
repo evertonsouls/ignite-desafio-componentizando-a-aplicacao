@@ -9,6 +9,7 @@ header {
   span.category {
     display: block;
     margin-top: 2rem;
+    margin-left: 2rem;    
 
     font-size: 2.25rem;
     font-weight: 600;
@@ -22,12 +23,45 @@ header {
 
 main {
   width: 100%;
-  margin-top: 5.625rem;
+  min-width: 460px;
+  margin-top: 1.625rem;
+  margin-left: auto;
+  margin-right: auto;
 
   .movies-list {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 4.75rem;
+    grid-template-columns: repeat(1, 1fr);
+    grid-gap: 1.75rem;
     list-style: none;
   }
+}
+
+@media (min-width: 920px) { 
+  main {
+    margin-top: 5.625rem;
+    padding: 0 2rem;
+  
+    .movies-list {      
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 4.75rem;
+    }
+  } 
+}
+
+@media (min-width: 1279px) { 
+  header {
+    span.category {
+      margin-left: 0;  
+    }
+  }
+
+  main {
+    margin-top: 5.625rem;
+    padding: 0;
+  
+    .movies-list {      
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 4.75rem;      
+    }
+  } 
 }
